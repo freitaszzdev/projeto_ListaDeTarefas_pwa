@@ -35,7 +35,8 @@ main h2 {
   margin-bottom: 1rem;
 }
 
-#nova-tarefa, #minhas-tarefas {
+#nova-tarefa,
+#minhas-tarefas {
   background-color: var(--cor-superficie);
   padding: 1.5rem;
   border-radius: 0.75rem;
@@ -53,4 +54,19 @@ main h2 {
 
 #lista-tarefas li {
   padding: 1.75rem;
+}
+
+.fundo-edicao {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  z-index: 1040;
+}
+
+.tarefa-em-edicao {
+  position: relative;
+  z-index: 1041;
+  background-color: var(--cor-superficie);
+  border-radius: 0.75rem;
 }
