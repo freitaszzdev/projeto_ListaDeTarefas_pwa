@@ -1,4 +1,4 @@
-const CACHE_NAME = "ritmo-v6";
+const CACHE_NAME = "ritmo-v7";
 
 const ASSETS = [
   "./",
@@ -10,15 +10,15 @@ const ASSETS = [
   "./recursos/img/favicon_logo.png",
   "./recursos/img/icon-192.png",
   "./recursos/img/icon-512.png",
-  "https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css",
-  "https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js",
+  "./recursos/vendor/bootstrap.min.css",
+  "./recursos/vendor/bootstrap.bundle.min.js",
 ];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(
     (async () => {
       const cache = await caches.open(CACHE_NAME);
-      await cache.addAll(ASSETS);
+      await cache.addAll(ASSETS.map((url) => new Request(url, { cache: "reload" })));
       await self.skipWaiting();
     })(),
   );
