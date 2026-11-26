@@ -73,12 +73,14 @@ function editarTarefa(item, titulo, textoCategoria, acoes) {
 
   const campoTitulo = document.createElement("input");
   campoTitulo.type = "text";
+  campoTitulo.setAttribute("aria-label", "Título da tarefa");
   campoTitulo.classList.add("form-control");
   campoTitulo.value = titulo.textContent;
   titulo.hidden = true;
   titulo.after(campoTitulo);
 
   const campoCategoria = document.createElement("select");
+  campoCategoria.setAttribute("aria-label", "Categoria da tarefa");
   campoCategoria.classList.add("form-select", "mt-3");
   for (const opcao of categoria.options) {
     if (opcao.value) {
