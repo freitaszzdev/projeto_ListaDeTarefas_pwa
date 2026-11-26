@@ -1,4 +1,4 @@
-const CACHE_NAME = "ritmo-v7";
+const CACHE_NAME = "ritmo-v8";
 
 const ASSETS = [
   "./",

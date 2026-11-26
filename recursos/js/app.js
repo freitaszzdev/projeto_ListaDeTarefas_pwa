@@ -13,14 +13,6 @@ const nomeTarefaExclusao = document.querySelector("#nome-tarefa-exclusao");
 const confirmarExclusao = document.querySelector("#confirmar-exclusao");
 let tarefaParaExcluir = null;
 
-const tarefasDeExemplo = [
-  { titulo: "Revisar os prazos da semana", categoria: "trabalho", status: "pendente" },
-  { titulo: "Enviar o resumo da reunião", categoria: "trabalho", status: "concluida" },
-  { titulo: "Organizar a lista de compras", categoria: "pessoal", status: "pendente" },
-  { titulo: "Separar o material para a aula", categoria: "estudos", status: "concluida" },
-  { titulo: "Resolver os exercícios de JavaScript", categoria: "estudos", status: "pendente" },
-];
-
 modalExclusao.addEventListener("show.bs.modal", (evento) => {
   tarefaParaExcluir = evento.relatedTarget.closest("li");
   nomeTarefaExclusao.textContent = tarefaParaExcluir.querySelector("h3").textContent;
@@ -246,11 +238,9 @@ function salvarTarefas() {
 }
 
 function carregarTarefas() {
-  let textoSalvo;
   let dados;
   try {
-    textoSalvo = localStorage.getItem(chaveTarefas);
-    dados = textoSalvo === null ? tarefasDeExemplo : JSON.parse(textoSalvo);
+    dados = JSON.parse(localStorage.getItem(chaveTarefas) ?? "[]");
   } catch (erro) {
     console.warn("Não foi possível carregar as tarefas.", erro);
     return;
@@ -283,8 +273,6 @@ function carregarTarefas() {
       );
     }
   }
-
-  if (textoSalvo === null) salvarTarefas();
 }
 
 filtroStatus.addEventListener("change", filtrarTarefas);
