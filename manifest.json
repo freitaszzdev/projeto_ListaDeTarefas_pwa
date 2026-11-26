@@ -1,6 +1,7 @@
 {
   "name": "Ritmo | Gestão de Tarefas",
   "short_name": "Ritmo",
+  "description": "Lista de tarefas pessoais com categorias e resumo diário.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
