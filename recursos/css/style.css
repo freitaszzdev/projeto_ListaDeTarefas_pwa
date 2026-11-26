@@ -38,7 +38,7 @@ main h2 {
 #nova-tarefa,
 #minhas-tarefas {
   background-color: var(--cor-superficie);
-  padding: 1.5rem;
+  padding: 2rem;
   border-radius: 0.75rem;
 }
 
@@ -69,4 +69,35 @@ main h2 {
   z-index: 1041;
   background-color: var(--cor-superficie);
   border-radius: 0.75rem;
+}
+
+@media (max-width: 991.98px) {
+  main {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    column-gap: 1.25rem;
+    align-items: start;
+  }
+
+  main > h1,
+  #resumo-do-dia,
+  #como-instalar {
+    grid-column: 1 / -1;
+  }
+
+  #nova-tarefa,
+  #minhas-tarefas {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  main {
+    display: block;
+  }
+
+  #nova-tarefa,
+  #minhas-tarefas {
+    padding: 1.5rem;
+  }
 }
